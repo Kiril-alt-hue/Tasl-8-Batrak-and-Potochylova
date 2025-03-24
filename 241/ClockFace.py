@@ -38,3 +38,4 @@ def test_clockface():
 
 # Виклик тесту
 test_clockface()
+
