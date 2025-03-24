@@ -1,6 +1,7 @@
 import time
 import math
 import turtle
+
 class Digit:
     def __init__(self, number, radius):
         self.number = number
@@ -11,9 +12,19 @@ class Digit:
         self.t.penup()
 
     def draw(self):
-        angle = math.radians(-90 + 30 * self.number)
+        angle = math.radians(90 - 30 * self.number)
         x = self.radius * math.cos(angle)
         y = self.radius * math.sin(angle)
+
+        if self.number > 9:
+            self.t.goto(x, y - 10)  # Для чисел 10,11,12
+        else:
+            self.t.goto(x, y - 5)  # Для чисел 1-9
+
+        self.t.write(str(self.number), align="center", font=("Arial", 12))
+
+
+
 
 if __name__ == "__main__":
     def test_digit():
@@ -22,7 +33,7 @@ if __name__ == "__main__":
         screen.bgcolor("white")
 
 
-        digit1 = Digit(3, 150)
+        digit1 = Digit(12, 150)
         digit1.draw()
         screen.mainloop()
     test_digit()

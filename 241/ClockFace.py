@@ -33,13 +33,6 @@ def test_clockface():
     clock1 = ClockFace(200)
     clock1.draw()
 
-    # Тест 2: Маленький циферблат
-    clock2 = ClockFace(100)
-    clock2.draw()
-
-    # Тест 3: Великий циферблат
-    clock3 = ClockFace(300)
-    clock3.draw()
 
     screen.mainloop()
 
