@@ -2,14 +2,17 @@ import turtle
 import time
 import math
 from Digits import *
+from Hand import *
+
 
 class ClockFace:
-    def __init__ (self, radius = 200):
+    def __init__(self, radius=200):
         self.radius = radius
         self.digits = []
         for i in range(1, 13):
             digit = Digit(i, radius * 0.8)
             self.digits.append(digit)
+        self.hands = Hand(radius)
 
     def draw(self):
         t = turtle.Turtle()
@@ -19,23 +22,27 @@ class ClockFace:
         t.goto(0, -self.radius)
         t.pendown()
         t.circle(self.radius)
-        t.penup()
+
 
         for digit in self.digits:
-            digit.draw()# Тестовий приклад для класу ClockFace
+            digit.draw()
 
-def test_clockface():
+        #малюємо стрілки
+        self.hands.update()
+
+
+def main():
     screen = turtle.Screen()
-    screen.title("Тест ClockFace")
-    screen.bgcolor("white")
-
-    # Тест 1: Стандартний циферблат
-    clock1 = ClockFace(200)
-    clock1.draw()
+    screen.title("Простий годинник")
+    clock = ClockFace(200)
+    clock.draw()
 
 
-    screen.mainloop()
+    while True:
+        clock.hands.update()
+        screen.update()
+        time.sleep(1)
 
-# Виклик тесту
-test_clockface()
 
+if __name__ == "__main__":
+    main()

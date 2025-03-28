@@ -21,7 +21,7 @@ class Digit:
         else:
             self.t.goto(x, y - 5)  # Для чисел 1-9
 
-        self.t.write(str(self.number), align="center", font=("Arial", 12))
+        self.t.write(str(self.number), align="center", font=("Arial", 14, "bold"))
 
 
 
@@ -32,9 +32,9 @@ if __name__ == "__main__":
         screen.title("Тест Digit")
         screen.bgcolor("white")
 
-
-        digit1 = Digit(12, 150)
-        digit1.draw()
+        for i in range(1, 13):
+            digit1 = Digit(i, 150)
+            digit1.draw()
         screen.mainloop()
     test_digit()
 
