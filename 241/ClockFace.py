@@ -1,6 +1,3 @@
-import turtle
-import time
-import math
 from Digits import *
 from Hand import *
 
