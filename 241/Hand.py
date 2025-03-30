@@ -6,9 +6,9 @@ class Hand:
     def __init__(self, radius):
         self.radius = radius
         self.hand_turtles = {
-            'hour': self.create_hand(radius * 0.5, 6, 'black'),
-            'minute': self.create_hand(radius * 0.7, 4, 'black'),
-            'second': self.create_hand(radius * 0.9, 2, 'red')
+            'hour': self.create_hand(radius * 0.5, 6, 'deeppink'),
+            'minute': self.create_hand(radius * 0.7, 4, 'deeppink'),
+            'second': self.create_hand(radius * 0.9, 2, 'pink')
         }
 
     def create_hand(self, length, width, color):

@@ -1,4 +1,6 @@
 
+from AnalogWatch import AnalogWatch
+from DigitalWatch import DigitalWatch
 from Hand import *
 
 
