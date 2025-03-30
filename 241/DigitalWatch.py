@@ -33,6 +33,7 @@ class DigitalWatch(Watch):
             time_str = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
 
         self.t.clear()
+        self.t.color("hot pink")
         self.t.write(time_str, align="center", font=("Arial", 24, "bold"))
 
     def toggle_format(self):

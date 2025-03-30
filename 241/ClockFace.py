@@ -1,53 +1,51 @@
 
 from AnalogWatch import AnalogWatch
 from DigitalWatch import DigitalWatch
-from Hand import *
+import turtle
+import time
 
 
 class ClockFace:
-    def __init__(self, radius=200):
-        self.radius = radius
-        self.analog_watch = AnalogWatch(radius)
-        self.digital_watch = DigitalWatch(radius)
-        self.current_watch = self.analog_watch  # default to analog
+    def __init__(self, analog_radius=200, digital_radius=200):
+        self.analog = AnalogWatch(analog_radius)
+
+        self.digital_12h = DigitalWatch(digital_radius, format_24h=False)
+        self.digital_24h = DigitalWatch(digital_radius, format_24h=True)
+        self.digital_12h.t.goto(analog_radius + 150, 0)
+        self.digital_24h.t.goto(analog_radius - 550, 0)
+
         self.screen = turtle.Screen()
-        self.setup_key_bindings()
 
-    def setup_key_bindings(self):
-        self.screen.onkey(self.toggle_watch, "w")  # 'w' to switch watch type
-        self.screen.onkey(self.toggle_format, "f")  # 'f' to toggle 12/24 hour format
-        self.screen.listen()
 
-    def toggle_watch(self):
-        if isinstance(self.current_watch, AnalogWatch):
-            self.current_watch = self.digital_watch
-        else:
-            self.current_watch = self.analog_watch
-        self.screen.clear()
-        self.current_watch.draw()
+    def toggle_analog(self):
+        self.analog.draw()
+        self.screen.update()
 
-    def toggle_format(self):
-        if isinstance(self.current_watch, DigitalWatch):
-            self.current_watch.toggle_format()
+    def toggle_digital(self):
+        self.digital_12h.draw()
+        self.digital_24h.draw()
+        self.screen.update()
 
     def draw(self):
-        self.current_watch.draw()
+        self.analog.draw()
+        self.digital_12h.draw()
+        self.digital_24h.draw()
 
     def update(self):
-        self.current_watch.update()
+        self.analog.update()
+        self.digital_12h.update()
+        self.digital_24h.update()
 
-
-def main():
+if __name__ == "__main__":
     screen = turtle.Screen()
-    screen.title("Розширений годинник")
-    clock = ClockFace(200)
-    clock.draw()
+    screen.tracer(0)
+
+    clock_face = ClockFace()
+    clock_face.draw()
+    screen.update()
 
     while True:
-        clock.update()
+        clock_face.update()
         screen.update()
         time.sleep(1)
 
-
-if __name__ == "__main__":
-    main()

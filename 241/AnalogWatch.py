@@ -1,4 +1,3 @@
-from pygame.draw import circle
 
 from Watch import Watch
 import turtle
@@ -8,6 +7,7 @@ from Hand import Hand
 
 class AnalogWatch(Watch):
     def __init__(self, radius=200):
+        super().__init__()
         self.radius = radius
         self.digits = []
         for i in range(1, 13):
