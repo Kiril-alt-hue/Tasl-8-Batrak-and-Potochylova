@@ -41,8 +41,3 @@ class Hand:
         hand.setheading(angle)
         hand.pendown()
         hand.forward(hand.length)
-
-
-
-
-

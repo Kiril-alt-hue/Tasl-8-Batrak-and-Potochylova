@@ -38,10 +38,3 @@ if __name__ == "__main__":
             digit1.draw()
         screen.mainloop()
     test_digit()
-
-
-
-
-
-
-

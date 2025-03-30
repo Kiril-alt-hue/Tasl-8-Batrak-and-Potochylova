@@ -1,5 +1,6 @@
-import turtle
 import time
+import turtle
+
 from Watch import *
 
 

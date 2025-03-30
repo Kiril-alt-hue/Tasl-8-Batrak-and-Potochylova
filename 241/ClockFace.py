@@ -1,4 +1,3 @@
-
 from AnalogWatch import AnalogWatch
 from DigitalWatch import DigitalWatch
 import turtle
@@ -48,5 +47,3 @@ if __name__ == "__main__":
         clock_face.update()
         screen.update()
         time.sleep(1)
-
-
