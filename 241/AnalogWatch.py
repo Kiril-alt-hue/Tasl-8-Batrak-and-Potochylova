@@ -52,3 +52,4 @@ if __name__ == "__main__":
         test_watch.update()
         screen.update()
         time.sleep(1)
+
